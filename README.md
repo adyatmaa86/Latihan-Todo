@@ -15,40 +15,44 @@ Ini adalah aplikasi Todo List sederhana yang dibangun menggunakan framework Lara
 
 Ikuti langkah-langkah berikut untuk mengatur dan menjalankan aplikasi di komputer lokal Anda:
 
-1. **Instal Dependensi PHP (Composer)**
+1. **Clone dulu**
+   ```bash
+   git clone https://github.com/adyatmaa86/Latihan-Todo.git
+
+2. **Instal Dependensi PHP (Composer)**
    ```bash
    composer install
    ```
 
-2. **Instal Dependensi Node.js (NPM)**
+3. **Instal Dependensi Node.js (NPM)**
    ```bash
    npm install
    ```
 
-3. **Build Asset**
+4. **Build Asset**
    ```bash
    npm run build
    ```
 
-4. **Pengaturan Environment**
+5. **Pengaturan Environment**
    Ganti nama file `.env.example` menjadi `.env` dan konfigurasikan koneksi database Anda:
    ```bash
    ganti aja yang .env.example menjadi .env, database udah saya sesuaikan, tinggal migrate aja nanti.
    ```
    **Catatan:** Buka file `.env` dan sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` dengan pengaturan database lokal Anda (kalo phpmyadmin defaultnya root, passwordnya kosongin aja).
    
-5. **Generate Application Key**
+6. **Generate Application Key**
    ```bash
    php artisan key:generate
    ```
 
-6. **Jalankan Migrasi Database**
+7. **Jalankan Migrasi Database**
    Buat tabel yang diperlukan di database Anda:
    ```bash
    php artisan migrate
    ```
 
-7. **Jalankan Aplikasi**
+8. **Jalankan Aplikasi**
    ```bash
    php artisan serve
    ```
