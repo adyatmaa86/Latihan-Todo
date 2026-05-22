@@ -31,12 +31,12 @@ Ikuti langkah-langkah berikut untuk mengatur dan menjalankan aplikasi di kompute
    ```
 
 4. **Pengaturan Environment**
-   Salin file `.env.example` menjadi `.env` dan konfigurasikan koneksi database Anda:
+   Ganti nama file `.env.example` menjadi `.env` dan konfigurasikan koneksi database Anda:
    ```bash
-   cp .env.example .env
+   ganti aja yang .env.example menjadi .env, database udah saya sesuaikan, tinggal migrate aja nanti.
    ```
-   *Catatan: Buka file `.env` dan sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` dengan pengaturan database lokal Anda.*
-
+   **Catatan:** Buka file `.env` dan sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` dengan pengaturan database lokal Anda (kalo phpmyadmin defaultnya root, passwordnya kosongin aja).
+   
 5. **Generate Application Key**
    ```bash
    php artisan key:generate
@@ -48,4 +48,7 @@ Ikuti langkah-langkah berikut untuk mengatur dan menjalankan aplikasi di kompute
    php artisan migrate
    ```
 
-**Catatan:** Anda tidak perlu menjalankan `php artisan serve` untuk mengecek web karena perintah tersebut diasumsikan sudah berjalan di terminal.
+7. **Jalankan Aplikasi**
+   ```bash
+   php artisan serve
+   ```
