@@ -62,17 +62,25 @@ Ikuti langkah-langkah berikut untuk mengatur dan menjalankan aplikasi di kompute
    php artisan db:seed
    ```
 10. **Login Setiap Role**
+
     ***Admin***
+
     Username/email : admin@gmail.com
+
     Password : admin123
 
     ***Staff***
+
     Username/email : staff@gmail.com
+
     Password : staff123
 
     ***Customer***
+
     Username/email : customer@gmail.com
+    
     Password : customer123
 
 11. **Catatan**
+
     NB : Tombol yang mengarah ke halaman todo muncul ketika anda login menggunakan admin  
