@@ -1,0 +1,30 @@
+/* ============================================================
+ * Custom Auth CSS
+ * Styling tambahan untuk halaman login dan register
+ * ============================================================ */
+
+/* Alert animation */
+.alert {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Toggle password cursor */
+.input-group-text[id^="toggle"] {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.input-group-text[id^="toggle"]:hover {
+    color: #0d6efd;
+}

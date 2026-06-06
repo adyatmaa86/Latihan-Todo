@@ -23,6 +23,10 @@
                 </div>
             </div>
             -->
+            <form action="{{ route('logout') }}" method="POST" class="inline">
+                @csrf
+                <button type="submit" class="btn btn-danger bg-red-600 text-amber-50 hover:text-white cursor-pointer">Logout</button>
+            </form>
         </div>
     </nav>
     

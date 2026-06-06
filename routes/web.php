@@ -4,6 +4,8 @@
 use Illuminate\Support\Facades\Route;
 // Import TodoController agar bisa dihubungkan dengan rute
 use App\Http\Controllers\Coba\TodoController;
+// Import AuthController untuk autentikasi
+use App\Http\Controllers\AuthController;
 
 // ============================================================
 // ROUTE HALAMAN UTAMA (Landing Page)
@@ -32,5 +34,44 @@ Route::get('/', function () {
 // Yang aktif dipakai di web ini: index, store, update, destroy
 // 'uy' = prefix nama route (uy.index, uy.store, dst.)
 // ============================================================
-Route::resource('/todo', TodoController::class)->names('uy');
+Route::resource('/todo', TodoController::class)->names('uy')->middleware('auth');
 
+// ============================================================
+// ROUTE AUTENTIKASI (Login, Register, Logout)
+// ============================================================
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// ============================================================
+// ROUTE DASHBOARD (dengan middleware auth + role)
+// ============================================================
+
+// Redirect /dashboard ke dashboard sesuai role
+Route::get('/dashboard', function () {
+    $user = auth()->user();
+    if ($user->role == 'admin') {
+        return redirect('/dashboard/admin');
+    } elseif ($user->role == 'staff') {
+        return redirect('/dashboard/staff');
+    } else {
+        return redirect('/dashboard/customer');
+    }
+})->middleware('auth')->name('dashboard');
+
+// Dashboard Admin - hanya role admin yang bisa akses
+Route::get('/dashboard/admin', function () {
+    return view('dashboard.admin');
+})->middleware(['auth', 'role:admin'])->name('dashboard.admin');
+
+// Dashboard Staff - hanya role staff yang bisa akses
+Route::get('/dashboard/staff', function () {
+    return view('dashboard.staff');
+})->middleware(['auth', 'role:staff'])->name('dashboard.staff');
+
+// Dashboard Customer - hanya role customer yang bisa akses
+Route::get('/dashboard/customer', function () {
+    return view('dashboard.customer');
+})->middleware(['auth', 'role:customer'])->name('dashboard.customer');
